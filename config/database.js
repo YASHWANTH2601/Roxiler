@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-// CRpmN8c3jS9AyFqD
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://yashwanth2601:CRpmN8c3jS9AyFqD@transactionsdb.zqxoh.mongodb.net/?retryWrites=true&w=majority&appName=transactionsDB"
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/?retryWrites=true&w=majority&appName=${process.env.APP_NAME}`
     );
     console.log("MongoDB connected");
   } catch (error) {
